@@ -1,5 +1,4 @@
 from urllib.parse import unquote
-from subprocess import Popen
 from threading import Thread
 from time import sleep
 import importlib
