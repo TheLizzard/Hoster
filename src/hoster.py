@@ -156,8 +156,11 @@ class FTPServer:
         folders = tuple(file for file in os.listdir(folder) if not os.path.isfile(os.path.join(folder, file)))
         all = tuple(sorted(sorted(folders), key=len)) + ordered_files
 
-        with open(".ignore", "r") as file:
-            ignored_files = file.read().split("\n")
+        try:
+            with open(".ignore", "r") as file:
+                ignored_files = file.read().split("\n")
+        except:
+            ignored_files = tuple()
         all_with_ignore = []
 
         for filename in all:
